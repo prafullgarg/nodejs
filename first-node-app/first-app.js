@@ -1,1 +1,3 @@
-console.log('Hello World!, I am Working on Node');
+const fs = require('fs');
+
+fs.writeFileSync('file.txt','Hello Using File System Module')
