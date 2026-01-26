@@ -1,22 +1,17 @@
+// Array and Object destructuring 
+const person = {
+    name: 'prafull',
+    age: 29
+} 
+
 const hobbies = ['Music', 'Cooking', 'Coding']
-// for (let hobby of hobbies){
-//     console.log(hobby) 
-// }
 
-// for reference types const only keeps the location and type const where variable is pointing it doesnt keep the value constent
-hobbies.push('Programming')
-console.log(hobbies.map(hobby => 'Hobby: ' + hobby));
+const printName = ({ name }) => console.log(name);
+printName(person)
 
-const copyhobbies1 = hobbies.slice();
-console.log(copyhobbies1);
+const { name, age} = person
+console.log ( name, age );
 
-// if using ... for breaing array in individual elements then its called spread operator.
-const copyhobbies2 = [...hobbies]
-console.log(copyhobbies2)
+const [hobby1, hobby2] = hobbies
+console.log(hobby1, hobby2)
 
-// if using ... for merging multiple arguments into single array then its called rest operator.
-const toArray = (...args) => {
-    return args;
-}
-
-console.log(toArray(1,2,3,45,56,2));
