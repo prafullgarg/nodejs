@@ -1,6 +1,7 @@
-var name = 'prafull';
-var age  =  29;
-var hobbies = true ;
+const name = 'prafull';
+// let changes the scoping behaviour of the variable.
+let age  =  29;
+const hobbies = true ;
 
 //  function without parameters/arguments
 function summerizeUser(userName, userAge, userHobbies) {
@@ -11,6 +12,10 @@ function summerizeUser(userName, userAge, userHobbies) {
         return (name + " " + age + " " + " " + hobbies)
     }
 }
+
+// name = "garg"
+// age = "prafull"
+// console.log (age)
 
 console.log(summerizeUser());
 console.log(summerizeUser(name, age, hobbies))
