@@ -6,6 +6,15 @@ const http = require('http');
 
 const server = http.createServer((req, res) => {
 
+        const url = req.url
+        if(url == '/') {
+                res.write('<html>');
+                res.write('<head><title>route</title></head>')
+                res.write('<body><form action="/message" method="POST"><button type="submit">click</button></body>')
+                res.write('</html>')
+                return res.end();
+        }
+
         res.setHeader('content-type','text/html')
         res.write('<html>');
         res.write('<head><title>My First Page</title></head>');
@@ -13,7 +22,7 @@ const server = http.createServer((req, res) => {
         res.write('</html>')
         res.end();
         // as long as there is event handler without process.exit nodejs event loop will keep runing listening for requests.
-        process.exit();
+        // process.exit();
 
     
 } );
