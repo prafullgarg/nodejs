@@ -1,21 +1,22 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path')
 const app = express();
 
-app.use("/", (req,res,next) => {
-    console.log("this always runs")
-    next();
-});
+const shopRoutes = require('./routes/shop');
+const adminRoutes = require('./routes/admin');
 
-app.use("/middle",(req,res,next) => {
-    res.send("in the middleware");
-});
+// This should be written before all routes so it all on every request
+// All requests flow from top to bottom.
+app.use(bodyParser.urlencoded({extended: false})); 
 
-app.use("/", ((req,res,next)=> {
-    console.log("in another middleware")
-    res.send('<h1>Hello From Express!!!</h1>')
-}));
+//Another layer of route filtering
+app.use('/admin', adminRoutes);
+app.use(shopRoutes);
 
-
+app.use('/', (req,res,next) => {
+    res.status(404).sendFile(path.join(__dirname,"views","page-not-found.html"));
+}) 
 
 
 app.listen(3000);
