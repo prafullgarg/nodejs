@@ -1,0 +1,17 @@
+{
+  "name": "npm-project",
+  "version": "1.0.0",
+  "description": "tooling and debugging",
+  "license": "ISC",
+  "author": "Prafull Garg",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-server": "node server.js",
+    "start": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
